@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# Prints a string 10 times using a for loop
+
 str="Best School"
 for i in {0..10}; do
 	echo "$str"
