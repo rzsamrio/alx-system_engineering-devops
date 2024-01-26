@@ -3,8 +3,8 @@
 # While runs the `command` continuously if the condition is met
 
 str="Best School"
-i="0"
-while [ $i -lt "10" ]; do
+i=0
+while [ $i -lt 10 ]; do
 	echo "$str"
 	i=$((i + 1))
 done
