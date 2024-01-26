@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+str="Best School"
+for i in {0..10}; do
+	echo "$str"
+	echo "$i" > /dev/null # Since i must be used
+done
