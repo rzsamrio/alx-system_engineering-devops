@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # Prints a string 10 times using a while loop
+# While runs the `command` continuously if the condition is met
 
 str="Best School"
 i="0"
