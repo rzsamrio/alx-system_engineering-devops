@@ -1,6 +1,3 @@
 #!/usr/bin/env bash
-for i in `pgrep -u $USER -f "bash"`
-do
-	echo -n "$USER "
-	echo "$i"
-done
+# Print the PID of bash
+pgrep -l "bash"
