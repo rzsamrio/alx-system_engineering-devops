@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Prints out a list of files in current directory
+for i in *
+do
+	echo "$i"
+done | cut -d- -f2
