@@ -18,7 +18,9 @@ An application server is a system which works with a database to generate dynami
 
 A database serves as a storage, managing, allocation of important and necessary in a network.
 
-The server uses Hypertext Transfer Protocol (HTTP) to communicate with the user (client)
+The server uses a TCP/IP for communication, that is Hypertext Transfer Protocol (HTTP) to communicate 
+with the user (client)
+
 
 
 INFRASTRUCTURE PROBLEMS

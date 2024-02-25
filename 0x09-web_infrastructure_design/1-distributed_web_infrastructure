@@ -1,1 +1,41 @@
-https://drive.google.com/file/d/1BE8sRb8hC-bsVyA2KJ42cs46bXWEbGFt/view?usp=drive_link
+Image link: https://drive.google.com/file/d/1BE8sRb8hC-bsVyA2KJ42cs46bXWEbGFt/view?usp=drive_link
+
+2 servers were added to allow for more traffic on the site.
+Each server possesses a web server, appsever and database so there is redundancy in the network
+A Load balancer is added to regulate the amount of incoming traffic on the servers.
+
+Our load-balancer is using a Round Robin algorithm distribution. Meaning the queries requested are distributed 
+to every server sequentially one after another. And after sending the request to the last server, the algorithm 
+startarts from the first server. This will bring on average and approximately, to a server load distribution of 
+50% on each of the two servers configuration.
+
+Our load-balancer is enabling an Active-Active set up.
+The Active-Active cluster is typically made up of at least two nodes, both activaley running the same type of 
+services at the same time. Their purpose is to achieve load balancing by distributing tasks to different servers 
+in order to prevent overload. As there are more than one servers (nodes) available to severe, the service time 
+and process throughput can have improvements.
+
+A database Primary-Replica (Master-Replica) is a mechanism which enables data of one database server (the master)
+to be replicated or to be copied to one or more computers or database servers (the slaves), in order all users 
+share the same level of information. This process leads to a distributed database in which users can quickly 
+access data without interfering with each other.
+The database replication process can either be synchronous or asynchronous. In the first one, the replication
+process is done from the client server to the model server and then replicated to all the replica servers 
+before the client is notified about the data replication. This method of replication may take longer to verify, 
+however all data was copied before proceeding.
+
+One of the main differences between the primary node and the replica node, regarding the application, is that the 
+primary database is regarded as the authoritative source, while the replica database is synchronized to it. The
+primary node serves as the keeper of information, here the “real” data is kept, then writing only happens here. 
+On the other hand, reading only occurs in the replica or slave node. This architecture purpose is due to safeguard
+site reliability. In case a site receives a lot of traffic, a replica node prevents overloading of the master 
+node with reading and writing requests. This eases the load of the entire system preventing it to collapse.
+
+
+ISSUES
+
+THE SPOF is the load balancer.
+The infrastrur=cture lacks security certification and firewall thus making it vulnerbale to phishing, loss of user
+data, fraud attacks, MITM attacks, and unauthorized access.
+It also lacks a monitoring system hece any failure will go unnoticed and may lead to further costs.
+
