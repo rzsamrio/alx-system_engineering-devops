@@ -1,1 +1,32 @@
-https://drive.google.com/file/d/1NIDnanoR_XqH7FAluuZe7cBHCqGiiNYE/view?usp=drive_link
+image link: https://drive.google.com/file/d/1NIDnanoR_XqH7FAluuZe7cBHCqGiiNYE/view?usp=drive_link
+
+BASIC DEFINITIONS
+
+A server is a physical or virtual computer whose primary task is to facilitate the sharing of resources
+on a network. It is a computer and thus possess an Operating system that allows it to perform these
+operations.
+
+The domain name serves as human readable means of representing the address of an server on a network.
+
+'www' is a subdomain of the domain 'foobar.com'. It is recorded on the CNAME of the DNS Server and
+can be used to alias the domain 'foobar.com'.
+
+A webserver is a server that deals with the sending, recieving and interpreting of http requests to respond to
+client requests.
+
+An application server is a system which works with a database to generate dynamic responses to client requests.
+
+A database serves as a storage, managing, allocation of important and necessary in a network.
+
+The server uses Hypertext Transfer Protocol (HTTP) to communicate with the user (client)
+
+
+INFRASTRUCTURE PROBLEMS
+SPOF: In the web design on the diagram, The SPOF is any point of the infrastructure e.g the server, database, 
+ips/router, this is due to the lack of redundancies.
+
+Downtime when maintenance needed: Since the network operates oon a signle server, during maintenance
+there is need for a shut down inorder to update or fix the system. Thus, causing downtime.
+
+Cannot scale if too much incoming traffic: Servers have a limit on the amount of traffic they can allow simultaneously and an overload will cause the server to crash. This is very likely in the single server infrastructure designed above.
+
