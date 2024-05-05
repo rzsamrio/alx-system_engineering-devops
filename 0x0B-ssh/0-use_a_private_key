@@ -1,0 +1,2 @@
+#!/bin/bash
+cat ~/.ssh/school | ssh ubuntu@54.175.243.76
