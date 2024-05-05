@@ -1,1 +1,5 @@
 https://drive.google.com/file/d/1BK6NZ5MHBuYi1w3CUhrYKfd2-dYi8njs/view?usp=drive_link
+
+
+We are scaling the network so we need to add a load balancer to regulate between primary an secondary servers.
+It is also added as a cluster to allow for high availability.
