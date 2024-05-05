@@ -1,0 +1,7 @@
+# Config file for ssh connection to a server
+
+Host alxserver-132327-web-01
+	HostName 54.125.243.76
+	User ubuntu
+	IdentityFile ~/.ssh/school
+	PubkeyAuthentication yes
