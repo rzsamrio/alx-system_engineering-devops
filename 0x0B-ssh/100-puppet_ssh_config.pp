@@ -1,10 +1,15 @@
 # Updating the config file via puppet
 
-file { '/etc/ssh/ssh_config' :
-  ensure  => 'present',
-  content => "Host alxserver-132327-web-01
-        HostName 54.125.243.76
-        User ubuntu
-        IdentityFile ~/.ssh/school
-        PubkeyAuthentication yes"
+file_line { 'Turn off passwd auth' :
+  ensure => 'present',
+  path   => '/etc/ssh/ssh_config',
+  line   => 'PubkeyAuthentication yes',
+  match  => '^PubkeyAuthentication'
+}
+
+file_line {'Declare identity file' :
+  ensure => 'present',
+  path   => '/etc/ssh/ssh_config',
+  line   => 'IdentityFile ~/.ssh/school',
+  match  => '^IdentityFile'
 }
