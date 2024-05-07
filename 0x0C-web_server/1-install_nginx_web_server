@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Install nginx on web server
+apt install -y nginx
