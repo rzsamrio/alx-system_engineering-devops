@@ -8,9 +8,9 @@ package { 'nginx' :
 
 
 # Get rid of all html files
-file {'/var/www/html/*' :
-    ensure  => absent,
-    recurse => true
+exec { 'remove' :
+    command  => 'usr/bin/env rm -f /var/www/html/*',
+    provider => absent,
 }
 
 # Create landing page 
@@ -29,7 +29,7 @@ file { '/etc/nginx/sites-available/default':
     root /var/www/html;
     index index.html index.htm index.nginx-debian.html; 
     
-    server_name itszey.com www.itszey.com;
+    server_name _;
 
     location / {
         try_files \$uri \$uri/ =404;
