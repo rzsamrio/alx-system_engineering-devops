@@ -2,7 +2,7 @@
 # Install nginx on web server and set up redirections returning errors
 apt install -y nginx
 
-sudo rm /var/www/html/*
+sudo rm -f /var/www/html/*
 echo 'Hello World!' > /var/www/html/index.html
 service nginx restart
 

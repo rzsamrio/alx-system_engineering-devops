@@ -40,3 +40,9 @@ file { '/etc/nginx/sites-available/default':
     }
 }'
 }
+
+# Ensure nginx is running
+service { 'nginx' :
+    ensure => running,
+    name   => 'nginx'
+}
