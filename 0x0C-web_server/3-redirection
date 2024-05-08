@@ -17,11 +17,13 @@ server {
 	server_name itszey.com www.itszey.com;
 
 	location / {
-		try_files $uri $uri/ =404;
+		try_files \$uri \$uri/ =404;
 	}
 
 	location /redirect_me {
 		return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
 	}
 }"
-echo $rep_cmd > sudo tee /etc/nginx/sites-available/default
+echo -e  "$rep_cmd" > /etc/nginx/sites-available/default
+
+service nginx reload
