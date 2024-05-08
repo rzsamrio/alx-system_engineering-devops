@@ -2,4 +2,6 @@
 # Install nginx on web server
 apt install -y nginx
 
-service nginx start
+sudo rm /var/www/html/*
+echo 'Hello world!' > /var/www/html/index.html
+service nginx restart
