@@ -10,7 +10,7 @@ package { 'nginx' :
 # Get rid of all html files
 exec { 'remove' :
     command  => 'usr/bin/env rm -f /var/www/html/*',
-    provider => absent,
+    provider => 'shell',
 }
 
 # Create landing page 
