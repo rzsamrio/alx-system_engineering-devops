@@ -5,4 +5,21 @@ apt install -y nginx
 sudo rm /var/www/html/*
 echo 'Hello World!' > /var/www/html/index.html
 service nginx restart
-Redirect 301 54.175.243.76/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 
+
+rep_cmd="
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+
+	root /var/www/html;
+	index index.html index.htm index.nginx-debian.html;	
+	
+	location / {
+		try_files $uri $uri/ =404;
+	}
+
+	location /redirect_me {
+		return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
+	}
+}"
+echo $rep_cmd > sudo tee /etc/nginx/sites-available/default
