@@ -1,9 +1,14 @@
 #!/usr/bin/env bash
-# Install nginx on web server and set up redirections returning errors
+# Install nginx on web server with custom error pages
+# `error_page <error codes> page_title;` the create location block
+# and host internal to ensure only internal redirection, restricting external access
+
+
 apt install -y nginx
 
 sudo rm /var/www/html/*
 echo 'Hello World!' > /var/www/html/index.html
+echo "Ceci n'est pas une page" > /var/www/html/404.html
 service nginx restart
 
 rep_cmd="
@@ -16,8 +21,15 @@ server {
 	
 	server_name itszey.com www.itszey.com;
 
+	error_page 404 /404.html;
+
 	location / {
-		try_files \$uri \$uri/ =404;
+		try_files \$uri \$uri/ = 404;
+	}
+
+	location /404.html {
+		internal;
+		root /var/www/html/;
 	}
 
 	location /redirect_me {
