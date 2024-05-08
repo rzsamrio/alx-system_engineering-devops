@@ -6,11 +6,11 @@ package { 'nginx' :
     provider => 'apt',
 }
 
-
 # Get rid of all html files
-exec { 'remove' :
-    command  => 'usr/bin/env rm -f /var/www/html/*',
-    provider => 'shell',
+file { '/var/www/html' :
+    ensure  => 'directory',
+    purge   => true,
+    recurse => true,
 }
 
 # Create landing page 
