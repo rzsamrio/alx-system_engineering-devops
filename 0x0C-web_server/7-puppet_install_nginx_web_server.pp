@@ -16,7 +16,7 @@ file { '/var/www/html' :
 # Create landing page 
 file {'/var/www/html/index.html' :
     ensure  => present,
-    content => 'Hello World!'
+    content => 'Hello World!\n'
 }
 
 # Create the config file
