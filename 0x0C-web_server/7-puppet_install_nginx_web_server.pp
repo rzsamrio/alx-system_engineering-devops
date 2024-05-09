@@ -16,7 +16,7 @@ file { '/var/www/html' :
 # Create landing page 
 file {'/var/www/html/index.html' :
     ensure  => present,
-    content => 'Hello World!\n'
+    content => 'Hello World!'
 }
 
 # Create the config file
@@ -32,7 +32,7 @@ file { '/etc/nginx/sites-available/default':
     server_name _;
 
     location / {
-        try_files \$uri \$uri/ =404;
+        try_files $uri $uri/ =404;
     }
 
     location /redirect_me {
