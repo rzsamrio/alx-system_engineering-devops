@@ -86,4 +86,4 @@ echo -e "$cmd" > /etc/nginx/sites-available/itszey.tech
 ln /etc/nginx/sites-available/itszey.tech /etc/nginx/sites-enabled/
 echo "$scr_angel" > /var/www/itszey.tech/html/angel.html
 echo "$scr_index" > /var/www/itszey.tech/html/index.html
-service nginx reload
+service nginx start
