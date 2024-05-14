@@ -5,7 +5,6 @@ apt install -y nginx
 
 sudo rm -f /var/www/html/*
 echo 'Hello World!' > /var/www/html/index.html
-service nginx restart
 
 rep_cmd="
 server {
@@ -27,4 +26,4 @@ server {
 }"
 echo -e  "$rep_cmd" > /etc/nginx/sites-available/default
 
-service nginx reload
+service nginx start
