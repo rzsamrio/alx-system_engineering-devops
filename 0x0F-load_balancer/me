@@ -1,0 +1,44 @@
+
+server {
+        add_header X-served-By: EkopGear 
+        listen 80 default_server;
+        listen [::]:80 default_server;
+
+        root /var/www/itszey.tech/html;
+        index index.html index.htm index.nginx-debian.html;
+
+        server_name itszey.tech www.itszey.tech;
+
+        error_page 404 /404.html;
+
+        location / {
+                try_files $uri $uri/ = 404;
+        }
+
+        location /angel {
+                return 301 http://angel.itszey.tech;
+        }
+
+        location /404.html {
+                internal;
+                root /var/www/itszey.tech/html/;
+        }
+
+        location /redirect_me {
+                return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
+        }
+}
+
+server {
+        listen 80;
+        listen [::]:80;
+
+        root /var/www/itszey.tech/html;
+        index angel.html angel.htm;
+
+        server_name angel.itszey.tech;
+
+        location / {
+                try_files $uri $uri/ = 404;
+        }
+}
