@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # Install nginx on web server and set up redirections returning errors
+sudo apt update -y
 apt install -y nginx
 
 sudo rm -f /var/www/html/*
