@@ -10,18 +10,12 @@ frontend http
 	bind *:80
 	mode http
 	default_backend web-backend
-	timeout client 30s
-	timeout connect 5s
-	timeout server 20s
 
 backend web-backend
 	balance roundrobin
 	mode http
 	server 132327-web-01 54.173.4.64:80 check
 	server 132327-web-02 100.25.41.219:80 check
-	timeout client 30s
-	timeout connect 5s
-	timeout server 20s
 "
 echo "ENABLED=1" > /etc/default/haproxy
 echo -e "$config" > /etc/haproxy/haproxy.cfg
