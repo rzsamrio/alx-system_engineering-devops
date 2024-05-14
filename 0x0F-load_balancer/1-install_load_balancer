@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+# Setting up a Load balancer to connect 2 servers to a domain 
+# install HAProxy 2.9
+apt-get install --no-install-recommends software-properties-common -y
+add-apt-repository ppa:vbernat/haproxy-2.9 -y
+apt-get install haproxy=2.9.\* -y
+
+config="
+frontend http
+	bind *:80
+	mode http
+	default_backend web-backend
+	timeout client 30s
+	timeout connect 5s
+	timeout server 20s
+
+backend web-backend
+	balance roundrobin
+	mode http
+	server 132327-web-01 54.173.4.64:80 check
+	server 132327-web-02 100.25.41.219:80 check
+	timeout client 30s
+	timeout connect 5s
+	timeout server 20s
+"
+echo "ENABLED=1" > /etc/default/haproxy
+echo -e "$config" > /etc/haproxy/haproxy.cfg
+service haproxy start
