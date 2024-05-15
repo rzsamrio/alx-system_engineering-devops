@@ -24,7 +24,7 @@ file {'/var/www/html/index.html' :
 file { '/etc/nginx/sites-available/default':
     ensure  => present,
     content => 'server {
-    add_header X-Served-By \"$(hostname)\";
+    add_header X-Served-By "$(hostname)";
     listen 80 default_server;
     listen [::]:80 default_server;
 
