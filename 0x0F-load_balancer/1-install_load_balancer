@@ -19,4 +19,4 @@ backend web-backend
 "
 echo "ENABLED=1" > /etc/default/haproxy
 echo -e "$config" > /etc/haproxy/haproxy.cfg
-service haproxy start
+service haproxy restart
