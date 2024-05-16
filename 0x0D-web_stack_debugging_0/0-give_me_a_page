@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+ME=$(docker run -p 8080:80 -d -it holbertonschool/265-0)
+docker exec $ME sudo apt install apache2 > /dev/null
+docker exec -i $ME sudo service apache2 start > /dev/null
+curl 0:8080
