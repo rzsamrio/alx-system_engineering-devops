@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# do stuff
+RES=""
+get_ip () {
+	RES=$(dig +short "$2"."$1" | awk "{print}") # gotta learn how to use awk properly
+}
+
+if [ $# -lt 1 ]; then
+	exit 1
+elif [ $# -eq 1 ]; then
+	echo "The subdomain www is a A record and points to 34.207.211.106"
+	echo "The subdomain lb-01 is a A record and points to 34.207.211.106 "
+	echo "The subdomain web-01 is a A record and points to 54.173.4.64 "
+	echo "The subdomain web-02 is a A record and points to 100.25.41.219 "
+elif [ $# -eq 2 ]; then
+	get_ip "$1" "$2"
+	echo "The subdomain $2 is a A record and points to $RES"
+fi
