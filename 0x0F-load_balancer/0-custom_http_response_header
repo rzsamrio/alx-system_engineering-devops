@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 # Configure machine to host itszey.tech
-apt update -y
-apt install nginx -y
-rm -rf /var/www/*
-mkdir -p /var/www/itszey.tech/html
+sudo apt update -y
+sudo apt install nginx -y
+sudo rm -rf /var/www/*
+sudo mkdir -p /var/www/itszey.tech/html
 
 scr_angel="
 <html>
@@ -82,8 +82,8 @@ scr_index="
         </body>
 </html>"
 
-echo -e "$cmd" > /etc/nginx/sites-available/itszey.tech
-ln /etc/nginx/sites-available/itszey.tech /etc/nginx/sites-enabled/
-echo "$scr_angel" > /var/www/itszey.tech/html/angel.html
-echo "$scr_index" > /var/www/itszey.tech/html/index.html
-service nginx start
+echo -e "$cmd" | sudo tee /etc/nginx/sites-available/itszey.tech > /dev/null
+sudo ln /etc/nginx/sites-available/itszey.tech /etc/nginx/sites-enabled/
+echo "$scr_angel" | sudo tee /var/www/itszey.tech/html/angel.html > /dev/null
+echo "$scr_index" | sudo tee /var/www/itszey.tech/html/index.html > /dev/null
+sudo service nginx start
