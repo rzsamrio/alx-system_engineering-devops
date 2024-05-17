@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 # fix docker on  nginx server
-apt update -y
-apt install nginx -y
-service nginx start
+sed -i s/8080/80/g
+sudo service nginx restart
+sudo pkill nginx
