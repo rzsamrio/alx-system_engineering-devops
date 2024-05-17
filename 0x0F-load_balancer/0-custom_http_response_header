@@ -3,33 +3,15 @@
 sudo apt update -y
 sudo apt install nginx -y
 sudo rm -rf /var/www/*
-sudo mkdir -p /var/www/itszey.tech/html
-
-scr_angel="
-<html>
-        <head>
-                <title>
-                Site In progress
-                </title>
-        </head>
-
-        <body style='color: white; background-color:black'>
-                <p align=\"centre\"> <big> Good Morning <em><font color='pink' face='times new roman' >Angel</font></em></big></p>
-                <p></p>
-                <p> Thank you for always putting up with my dumb behaviour<br/>
-                I promise to change and i love you very much.</p><hr/>
-                <h6 align=\"centre\"> Site in progress </h6>
-                <h3>
-        </body>
-</html>"
-
+sudo mkdir -p /var/www/html
+echo "Hello World!" | sudo tee /var/www/html/index.html > /dev/null
 cmd="
 server {
         add_header X-Served-By \"$(hostname)\";
         listen 80 default_server;
         listen [::]:80 default_server;
 
-        root /var/www/itszey.tech/html;
+        root /var/www/html;
         index index.html index.htm index.nginx-debian.html;
 
         server_name itszey.tech www.itszey.tech;
@@ -52,39 +34,7 @@ server {
         location /redirect_me {
                 return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
         }
-}
-
-server {
-        listen 80;
-        listen [::]:80;
-
-        root /var/www/itszey.tech/html;
-        index angel.html angel.htm;
-
-        server_name angel.itszey.tech;
-
-        location / {
-                try_files \$uri \$uri/ = 404;
-        }
 }"
 
-scr_index="
-<html>
-        <head>
-                <title>
-                Site In progress
-                </title>
-        </head>
-
-        <body style='color: white; background-color:black'>
-                <h1 style='text-align: centre'> Site in progress </h1> <hr/>
-                <h3>
-        </body>
-</html>"
-
-echo -e "$cmd" | sudo tee /etc/nginx/sites-available/itszey.tech > /dev/null
-sudo ln /etc/nginx/sites-available/itszey.tech /etc/nginx/sites-enabled/
-echo "$scr_angel" | sudo tee /var/www/itszey.tech/html/angel.html > /dev/null
-echo "$scr_index" | sudo tee /var/www/itszey.tech/html/index.html > /dev/null
-sudo service nginx start
-exit 1
+echo -e "$cmd" | sudo tee /etc/nginx/sites-enabled/default > /dev/null
+sudo service nginx restart
