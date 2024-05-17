@@ -3,7 +3,7 @@
 sudo apt update -y
 sudo apt install nginx -y
 sudo apt install curl -y
-sudo echo "
+echo "
 server {
     listen 80 default_server;
     listen [::]:80 default_server;
@@ -16,6 +16,6 @@ server {
     location / {
         try_files \$uri \$uri/ =404;
     }
-}" > /etc/nginx/sites-available/default
+}" | sudo tee /etc/nginx/sites-available/default > /dev/null
 sudo ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 sudo service nginx restart
