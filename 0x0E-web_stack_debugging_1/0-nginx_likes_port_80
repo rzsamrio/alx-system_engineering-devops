@@ -4,3 +4,4 @@ sudo apt update -y
 sudo apt install nginx -y
 ln /etc/nginx/sites-available/default /etc/nginx/sites-enabled
 sudo service nginx start
+curl 0:80
