@@ -3,7 +3,6 @@
 apt update -y
 apt install nginx -y
 apt install curl -y
-service nginx start
 echo "
 server {
     listen 80 default_server;
@@ -18,3 +17,4 @@ server {
         try_files \$uri \$uri/ =404;
     }
 }" > /etc/nginx/sites-available/default
+service nginx restart
