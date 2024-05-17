@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
 # fix docker on  nginx server
-sudo apt install nginx
+sudo apt update -y
+sudo apt install nginx -y
+ln /etc/nginx/sites-available/default /etc/nginx/sites-enabled
 sudo service nginx start
