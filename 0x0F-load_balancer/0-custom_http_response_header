@@ -87,3 +87,4 @@ sudo ln /etc/nginx/sites-available/itszey.tech /etc/nginx/sites-enabled/
 echo "$scr_angel" | sudo tee /var/www/itszey.tech/html/angel.html > /dev/null
 echo "$scr_index" | sudo tee /var/www/itszey.tech/html/index.html > /dev/null
 sudo service nginx start
+exit 1
