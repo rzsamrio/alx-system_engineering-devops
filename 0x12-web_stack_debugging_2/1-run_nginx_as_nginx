@@ -3,5 +3,5 @@
 pkill apache2
 sudo -u nginx apt install nginx -y
 sed 's/80/8080/g' /etc/nginx/sites-available/default | sudo tee /etc/nginx/sites-available/default > /dev/null
-sed -i '/user/c\user nginx;' /etc/nginx/nginx.conf
-sudo -u nginx service nginx restart
+sed -i '/user/c\user nginx;/' /etc/nginx/nginx.conf
+sudo -u nginx service nginx start
