@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 # Run nginx as NGINX user, and configure nginx to listen on port 8080
 pkill apache2
-sudo apt remove nginx -y
 sudo apt install nginx -y
 sed 's/\b80\b/8080/g' /etc/nginx/sites-available/default | sudo tee /etc/nginx/sites-available/default > /dev/null
 sed -i '/user/c\user nginx;' /etc/nginx/nginx.conf
-sudo service nginx start
+sudo -u nginx service nginx start
