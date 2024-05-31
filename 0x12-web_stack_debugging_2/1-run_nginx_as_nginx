@@ -2,5 +2,6 @@
 # Run nginx as NGINX user, and configure nginx to listen on port 8080
 sudo service nginx stop
 sudo -u nginx apt install nginx -y
-sudo -u nginx sed 's/80/8080/g' /etc/nginx/sites-available/default | sudo tee /etc/nginx/sites-available/default > /dev/null
+sed 's/80/8080/g' /etc/nginx/sites-available/default | sudo tee /etc/nginx/sites-available/default > /dev/null
+sed 's/user/user nginx/' /etc/nginx/nginx.conf
 sudo -u nginx service nginx restart
