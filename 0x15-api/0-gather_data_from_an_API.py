@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """ Gather data from a REST API """
-import sys
 import requests
+import sys
 
 if __name__ == '__main__':
     id = int(sys.argv[1])
