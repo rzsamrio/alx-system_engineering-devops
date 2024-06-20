@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Configure mysql backup file and compression for disk space
 day=$(date '+%d')
 month=$(date '+%m')
 year=$(date '+%Y')
