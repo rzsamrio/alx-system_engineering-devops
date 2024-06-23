@@ -10,13 +10,14 @@ if __name__ == '__main__':
 
     result = {}
     for x, user in enumerate(users):
-        tasks = requests.get("""https://jsonplaceholder.typicode.com/todos?
-                             userId=""" + str(x + 1)).json()
+        uid = str(x + 1)
+        path = 'https://jsonplaceholder.typicode.com/todos?userId=' + uid
+        tasks = requests.get(path).json()
         res = []
         for task in tasks:
             res.append({"username": user['username'], "task": task['title'],
                        "completed": task['completed']})
-        result.update({x + 1: res})
+        result.update({uid: res})
 
     with open(f'todo_all_employees.json', 'w') as file:
         json.dump(result, file)
