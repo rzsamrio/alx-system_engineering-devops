@@ -16,7 +16,7 @@ if __name__ == '__main__':
         for task in tasks:
             res.append({"username": user['username'], "task": task['title'],
                        "completed": task['completed']})
-    result.update({x + 1: res})
+        result.update({x + 1: res})
 
     with open(f'todo_all_employees.json', 'w') as file:
         json.dump(result, file)
