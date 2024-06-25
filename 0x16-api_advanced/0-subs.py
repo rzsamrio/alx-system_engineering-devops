@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """ Return the total number of subscribers on a subreddit"""
-import urllib.request
 import json
+import urllib.request
 
 
 def number_of_subscribers(subreddit):
