@@ -1,19 +1,16 @@
 #!/usr/bin/python3
-""" Return the total number of subscribers on a subreddit"""
-import json
-import urllib.request
+"""Count the number of subscribers for a subreddit."""
+import requests
 
 
 def number_of_subscribers(subreddit):
-    uri = 'https://www.reddit.com/r/{}/about.json'.format(subreddit)
-    head = {'User-Agent': 'PC_ALX'}
-    request = urllib.request.Request(uri, headers=head)
-
-    try:
-        with urllib.request.urlopen(request) as response:
-            data = response.read().decode('utf-8')
-            info = json.loads(data).get('data')
-            val = info.get('subscribers')
-            return val
-    except Exception:
-        return 0
+    """Count the number of subscribers for a subreddit."""
+    base_url = "https://www.reddit.com"
+    headers = {
+        "User-Agent": "ALXProjectBot:Devops_0x16 v1.0.0 Advanced API",
+    }
+    resp = requests.get(
+        "{}/r/{}/about.json".format(base_url, subreddit),
+        headers=headers,
+    )
+    return resp.json().get("data", {}).get("subscribers", 0)
